@@ -1,39 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import { TriviaContext } from '../common/TriviaContext';
+import QuestionCard from './QuestionCard';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        marginTop: 15,
-    },
-    paper: {
-        height: 165,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-}));
-
-export default function NestedGrid() {
+function NestedGrid() {
     const classes = useStyles();
+    const { sports, science, nature, music } = useContext(TriviaContext);
 
-    function FormRow() {
+    function FormRow(props) {
+        let category = props.category;
         return (
             <React.Fragment >
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
+                <QuestionCard question={1} category={category} />
+                <QuestionCard question={2} category={category} />
+                <QuestionCard question={3} category={category} />
+                <QuestionCard question={4} category={category} />
             </React.Fragment>
         );
     }
@@ -43,21 +26,29 @@ export default function NestedGrid() {
             <Grid container
                 spacing={1}
                 justify="center"
-
             >
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
+                <Grid container item xs={12} spacing={2}>
+                    <FormRow category={sports} />
                 </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
+                <Grid container item xs={12} spacing={2}>
+                    <FormRow category={science} />
                 </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
+                <Grid container item xs={12} spacing={2}>
+                    <FormRow category={music} />
                 </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
+                <Grid container item xs={12} spacing={2}>
+                    <FormRow category={nature} />
                 </Grid>
             </Grid>
         </div>
     );
 }
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        marginTop: 15,
+    },
+}));
+
+export default NestedGrid
