@@ -5,7 +5,14 @@ import 'reactjs-popup/dist/index.css';
 import Answer from '../trivia-elements/Answer';
 
 function QuestionWindow(props) {
-    const { category, question, startQuestion, toggleStartQuestion } = useContext(TriviaContext);
+    const { category, question, startQuestion, clickedAnswer, toggleStartQuestion, updateClickedAnswer,
+        updateCorrectAnswer } = useContext(TriviaContext);
+
+    const updateState = () => {
+        toggleStartQuestion();
+        updateClickedAnswer(0);
+        updateCorrectAnswer(0);
+    }
 
     return (
         <Popup
@@ -15,10 +22,20 @@ function QuestionWindow(props) {
         >
             {close => (
                 <div className="modal">
-                    <button className="close" onClick={toggleStartQuestion}>
+                    <button className="close" onClick={() => updateState()}>
                         &times;
                     </button>
-                    <div className="header"> Category: </div>
+                    {
+                        clickedAnswer === category.correctAnswers[question] ?
+                            <div className="header">
+                                Correct!
+                            </div> :
+                            clickedAnswer !== 0 ?
+                                <div className="header">
+                                    Incorrect!
+                                </div> : ''
+                    }
+
                     <div className="content">
                         <h1>{category.questions[question]}</h1>
                         <br />

@@ -6,7 +6,7 @@ function Answer(props) {
     const { category, question, clickedAnswer, correctAnswer, updateClickedAnswer, updateCorrectAnswer } = useContext(TriviaContext);
 
     const checkAnswer = (clicked) => {
-        if (clicked == category.correctAnswers[question]) {
+        if (clicked === category.correctAnswers[question]) {
             updateCorrectAnswer(category.correctAnswers[question]);
             updateClickedAnswer(clicked);
             console.log("Correct!")
@@ -22,22 +22,22 @@ function Answer(props) {
         .map((qAnswer, i) => (
             <li
                 className={
-                    correctAnswer == qAnswer ?
+                    correctAnswer === qAnswer ?
                         'correct' :
-                        clickedAnswer == qAnswer ?
+                        clickedAnswer === qAnswer ?
                             'incorrect' : ''
                 }
                 onClick={() => checkAnswer(qAnswer)}
-key = { qAnswer } >
-    { props.answers[qAnswer] }
+                key={qAnswer} >
+                {props.answers[qAnswer]}
             </li >
         ));
 
-return (
-    <ul className='Answers'>
-        {answer}
-    </ul>
-)
+    return (
+        <ul className='Answers'>
+            {answer}
+        </ul>
+    );
 
 }
 
