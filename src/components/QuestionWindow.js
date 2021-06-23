@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import Popup from 'reactjs-popup';
-import { TriviaContext } from '../common/TriviaContext';
+import { SportsCategory, ScienceCategory, MusicCategory, NatureCategory, TriviaContext } from '../common/TriviaContext';
 import 'reactjs-popup/dist/index.css';
+import Answer from '../trivia-elements/Answer';
 
 function QuestionWindow(props) {
-    const { startQuestion, toggleStartQuestion } = useContext(TriviaContext);
+    const { category, question, startQuestion, toggleStartQuestion } = useContext(TriviaContext);
 
     return (
         <Popup
@@ -17,30 +18,14 @@ function QuestionWindow(props) {
                     <button className="close" onClick={toggleStartQuestion}>
                         &times;
                     </button>
-                    <div className="header"> Modal Title </div>
+                    <div className="header"> Category: </div>
                     <div className="content">
-                        {' '}
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
-                        Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
-                        delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
+                        <h1>{category.questions[question]}</h1>
                         <br />
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
-                        commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
-                        explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+                        <br />
+                        <Answer answers={category.answers[question]} />
                     </div>
                     <div className="actions">
-                        <Popup
-                            trigger={<button className="button"> Trigger </button>}
-                            position="top center"
-                            nested
-                        >
-                            <span>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-                                magni omnis delectus nemo, maxime molestiae dolorem numquam
-                                mollitia, voluptate ea, accusamus excepturi deleniti ratione
-                                sapiente! Laudantium, aperiam doloribus. Odit, aut.
-                            </span>
-                        </Popup>
                         <button
                             className="button"
                             onClick={() => {

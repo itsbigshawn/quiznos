@@ -10,10 +10,9 @@ import QuestionWindow from './QuestionWindow';
 
 function NestedGrid() {
     const classes = useStyles();
-    const { category, startQuestion } = useContext(TriviaContext);
+    const { question, startQuestion } = useContext(TriviaContext);
 
-    function FormRow(props) {
-        let category = props.category;
+    const formRow = (category) => {
         return (
             <React.Fragment >
                 <QuestionCard question={1} category={category} />
@@ -31,21 +30,20 @@ function NestedGrid() {
                 justify="center"
             >
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={SportsCategory} />
+                    {formRow(SportsCategory)}
                 </Grid>
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={ScienceCategory} />
+                    {formRow(ScienceCategory)}
                 </Grid>
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={MusicCategory} />
+                    {formRow(MusicCategory)}
                 </Grid>
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={NatureCategory} />
+                    {formRow(NatureCategory)}
                 </Grid>
             </Grid>
             {startQuestion &&
-                < QuestionWindow>
-                </QuestionWindow>
+                < QuestionWindow />
             }
         </div>
     );

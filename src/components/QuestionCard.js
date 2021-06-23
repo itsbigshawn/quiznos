@@ -9,14 +9,14 @@ import 'reactjs-popup/dist/index.css';
 
 function QuestionCard(props) {
     const classes = useStyles();
-    const { startQuestion, toggleStartQuestion } = useContext(TriviaContext);
+    const { toggleStartQuestion, updateCategory, updateQuestion } = useContext(TriviaContext);
     const index = props.question;
     const category = props.category;
 
-    const questionWindow = () => {
-        console.log("startQuestion: ", startQuestion);
-
-        // console.log("startQuestion: ", startQuestion);
+    const updateState = (category, questionIndex) => {
+        toggleStartQuestion();
+        updateCategory(category);
+        updateQuestion(questionIndex);
     }
 
     return (
@@ -24,7 +24,7 @@ function QuestionCard(props) {
             <Paper className={classes.paper} style={{ backgroundColor: category.color }}>
                 {category.scores[index]}
                 <Grid item>
-                    <Button onClick={toggleStartQuestion} className={classes.button} variant="outlined">Play</Button>
+                    <Button onClick={() => updateState(category, index)} className={classes.button} variant="outlined">Play</Button>
                 </Grid>
             </Paper>
         </Grid>
