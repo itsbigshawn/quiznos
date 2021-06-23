@@ -2,12 +2,15 @@ import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import { TriviaContext } from '../common/TriviaContext';
+import { SportsCategory, ScienceCategory, MusicCategory, NatureCategory, TriviaContext } from '../common/TriviaContext';
 import QuestionCard from './QuestionCard';
+import Popup from 'reactjs-popup';
+import './Grid.css'
+import QuestionWindow from './QuestionWindow';
 
 function NestedGrid() {
     const classes = useStyles();
-    const { sports, science, nature, music } = useContext(TriviaContext);
+    const { category, startQuestion } = useContext(TriviaContext);
 
     function FormRow(props) {
         let category = props.category;
@@ -28,18 +31,22 @@ function NestedGrid() {
                 justify="center"
             >
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={sports} />
+                    <FormRow category={SportsCategory} />
                 </Grid>
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={science} />
+                    <FormRow category={ScienceCategory} />
                 </Grid>
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={music} />
+                    <FormRow category={MusicCategory} />
                 </Grid>
                 <Grid container item xs={12} spacing={2}>
-                    <FormRow category={nature} />
+                    <FormRow category={NatureCategory} />
                 </Grid>
             </Grid>
+            {startQuestion &&
+                < QuestionWindow>
+                </QuestionWindow>
+            }
         </div>
     );
 }

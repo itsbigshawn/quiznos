@@ -36,11 +36,13 @@ export const SportsCategory = {
         4: '2'
     },
     scores: {
-        1: 1,
-        2: 2,
-        3: 3,
-        4: 4
+        1: 10,
+        2: 20,
+        3: 30,
+        4: 40
     },
+    clickedAnswer: 0,
+    displayQuestion: false,
     color: '#FF6663',
 }
 
@@ -80,11 +82,13 @@ export const ScienceCategory = {
         4: '2'
     },
     scores: {
-        1: 1,
-        2: 2,
-        3: 3,
-        4: 4
+        1: 10,
+        2: 20,
+        3: 30,
+        4: 40
     },
+    clickedAnswer: 0,
+    displayQuestion: false,
     color: '#C7F9FA',
 }
 
@@ -124,11 +128,13 @@ export const MusicCategory = {
         4: '3'
     },
     scores: {
-        1: 1,
-        2: 2,
-        3: 3,
-        4: 4
+        1: 10,
+        2: 20,
+        3: 30,
+        4: 40
     },
+    clickedAnswer: 0,
+    displayQuestion: false,
     color: '#FFFAD4',
 }
 
@@ -168,45 +174,25 @@ export const NatureCategory = {
         4: '3'
     },
     scores: {
-        1: 1,
-        2: 2,
-        3: 3,
-        4: 4
+        1: 10,
+        2: 20,
+        3: 30,
+        4: 40
     },
+    clickedAnswer: 0,
+    displayQuestion: false,
     color: '#9EE992'
 }
 
 export const TriviaContext = createContext({
-    // questions: {
-    //     sports: SportsCategory.questions,
-    //     science: ScienceCategory.questions,
-    //     music: MusicCategory.questions,
-    //     nature: NatureCategory.questions,
-    // },
-    // answers: {
-    //     sports: SportsCategory.answers,
-    //     science: ScienceCategory.answers,
-    //     music: MusicCategory.answers,
-    //     nature: NatureCategory.answers
-    // },
-    // correctAnswers: {
-    //     sports: SportsCategory.correctAnswers,
-    //     science: ScienceCategory.correctAnswers,
-    //     music: MusicCategory.correctAnswers,
-    //     nature: NatureCategory.correctAnswers
-    // },
-    // colors: {
-    //     sports: SportsCategory.color,
-    //     science: ScienceCategory.color,
-    //     music: MusicCategory.color,
-    //     nature: NatureCategory.color,
-    // },
-    sports: SportsCategory,
-    science: ScienceCategory,
-    music: MusicCategory,
-    nature: NatureCategory,
-    correctAnswer: 0,
+    category: null,
+    question: 0,
+    startQuestion: false,
     clickedAnswer: 0,
+    correctAnswer: 0,
     timer: 60,
     score: 0,
+    toggleStartQuestion: () => { },
 });
+
+
