@@ -3,10 +3,14 @@ import Popup from 'reactjs-popup';
 import { SportsCategory, ScienceCategory, MusicCategory, NatureCategory, TriviaContext } from '../common/TriviaContext';
 import 'reactjs-popup/dist/index.css';
 import Answer from '../trivia-elements/Answer';
+import Timer from '../trivia-elements/Timer';
 
 function QuestionWindow(props) {
-    const { category, question, startQuestion, clickedAnswer, toggleStartQuestion, updateClickedAnswer,
+    const { category, question, startQuestion, clickedAnswer, score, toggleStartQuestion, updateClickedAnswer,
         updateCorrectAnswer } = useContext(TriviaContext);
+
+    const time = new Date();
+    time.setSeconds(time.getSeconds() + 60); // 10 minutes timer 
 
     const updateState = () => {
         toggleStartQuestion();
@@ -25,7 +29,11 @@ function QuestionWindow(props) {
                     <button className="close" onClick={() => updateState()}>
                         &times;
                     </button>
-                    {
+                    <div>
+                        <Timer expiryTimestamp={time} />
+                        <h1>{score}</h1>
+                    </div>
+                    { /* {
                         clickedAnswer === category.correctAnswers[question] ?
                             <div className="header">
                                 Correct!
@@ -34,8 +42,7 @@ function QuestionWindow(props) {
                                 <div className="header">
                                     Incorrect!
                                 </div> : ''
-                    }
-
+                    } */}
                     <div className="content">
                         <h1>{category.questions[question]}</h1>
                         <br />

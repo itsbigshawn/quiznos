@@ -197,6 +197,7 @@ export const TriviaContext = createContext({
     toggleStartQuestion: () => { },
     updateClickedAnswer: (clickedAnswer) => { },
     updateCorrectAnswer: (correctAnswer) => { },
+    updateScore: (points) => {},
 });
 
 

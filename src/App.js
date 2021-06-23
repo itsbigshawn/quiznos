@@ -17,6 +17,7 @@ function App() {
   const toggleStartQuestion = () => setStartQuestion(!startQuestion);
   const updateClickedAnswer = (clickedAnswer) => setClickedAnswer(clickedAnswer);
   const updateCorrectAnswer = (correctAnswer) => setCorrectAnswer(correctAnswer);
+  const updateScore = (points) => setScore(score + points);
 
   return (
     <div className="App">
@@ -33,7 +34,8 @@ function App() {
           updateQuestion,
           toggleStartQuestion,
           updateClickedAnswer,
-          updateCorrectAnswer
+          updateCorrectAnswer,
+          updateScore,
         }}
       >
         <NestedGrid />
