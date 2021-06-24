@@ -6,7 +6,7 @@ import Answer from '../trivia-elements/Answer';
 import Timer from '../trivia-elements/Timer';
 
 function QuestionWindow(props) {
-    const { category, question, startQuestion, clickedAnswer, score, toggleStartQuestion, updateClickedAnswer,
+    const { category, question, startQuestion, clickedAnswer, correctAnswer, score, toggleStartQuestion, updateClickedAnswer,
         updateCorrectAnswer } = useContext(TriviaContext);
 
     const time = new Date();
@@ -30,35 +30,30 @@ function QuestionWindow(props) {
                         &times;
                     </button>
                     <div>
-                        <Timer expiryTimestamp={time} />
+                        <h1 style={{ textAlign: 'center' }}> Your score: {score} </h1>
+                        <br />
                         <br />
                     </div>
-                    { /* {
-                        clickedAnswer === category.correctAnswers[question] ?
-                            <div className="header">
-                                Correct!
+                    {clickedAnswer === 0 ?
+                        <div>
+                            <Timer expiryTimestamp={time} />
+                            <br />
+                        </div> :
+                        clickedAnswer === correctAnswer ?
+                            <div>
+                                <h1 style={{ textAlign: 'center', color: 'green' }}> Correct! </h1>
+                                <br />
                             </div> :
-                            clickedAnswer !== 0 ?
-                                <div className="header">
-                                    Incorrect!
-                                </div> : ''
-                    } */}
+                            <div>
+                                <h1 style={{ textAlign: 'center', color: 'red' }}> Incorrect! </h1>
+                                <br />
+                            </div>
+                    }
                     <div className="content">
                         <h1>{category.questions[question]}</h1>
                         <br />
                         <br />
                         <Answer answers={category.answers[question]} />
-                    </div>
-                    <div className="actions">
-                        <button
-                            className="button"
-                            onClick={() => {
-                                console.log('modal closed ');
-                                close();
-                            }}
-                        >
-                            close modal
-                        </button>
                     </div>
                 </div>
             )}

@@ -1,6 +1,6 @@
 .cardContainer {
   flex-grow: 1;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   right: 0;
   width: 90%;
@@ -9,11 +9,9 @@
 
 .sideBar {
   padding-left: 20px;
-  padding-top: 200px;
-  position: absolute;
-  bottom: 10px;
+  padding-top: 90px;
 }
 
 .label {
-  padding-bottom: 80px;
+  padding-bottom: 120px;
 }
