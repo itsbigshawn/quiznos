@@ -10,7 +10,7 @@ import QuestionWindow from './QuestionWindow';
 
 function NestedGrid() {
     const classes = useStyles();
-    const { question, startQuestion } = useContext(TriviaContext);
+    const { score, startQuestion } = useContext(TriviaContext);
 
     const formRow = (category) => {
         return (
@@ -24,27 +24,47 @@ function NestedGrid() {
     }
 
     return (
-        <div className={classes.root}>
-            <Grid container
-                spacing={1}
-                justify="center"
-            >
-                <Grid container item xs={12} spacing={2}>
-                    {formRow(SportsCategory)}
+        <div>
+            <div className='header' style={{ textAlign: 'center' }}>
+                <h1> Your score: {score} </h1>
+
+            </div>
+            <div className='sideBar'>
+                <div className='label'>
+                    <h1 style={{ color: "#C70039" }}>Sports</h1>
+                </div>
+                <div className='label'>
+                    <h1 style={{ color: "#AAD9DC" }}>Science</h1>
+                </div>
+                <div className='label'>
+                    <h1 style={{ color: "#FFEB80" }}>Music</h1>
+                </div>
+                <div className='label'>
+                    <h1 style={{ color: "#9EE992" }}>Nature</h1>
+                </div>
+            </div>
+            <div className='cardContainer'>
+                <Grid container
+                    spacing={1}
+                    justify="center"
+                >
+                    <Grid container item xs={12} spacing={2}>
+                        {formRow(SportsCategory)}
+                    </Grid>
+                    <Grid container item xs={12} spacing={2}>
+                        {formRow(ScienceCategory)}
+                    </Grid>
+                    <Grid container item xs={12} spacing={2}>
+                        {formRow(MusicCategory)}
+                    </Grid>
+                    <Grid container item xs={12} spacing={2}>
+                        {formRow(NatureCategory)}
+                    </Grid>
                 </Grid>
-                <Grid container item xs={12} spacing={2}>
-                    {formRow(ScienceCategory)}
-                </Grid>
-                <Grid container item xs={12} spacing={2}>
-                    {formRow(MusicCategory)}
-                </Grid>
-                <Grid container item xs={12} spacing={2}>
-                    {formRow(NatureCategory)}
-                </Grid>
-            </Grid>
-            {startQuestion &&
-                < QuestionWindow />
-            }
+                {startQuestion &&
+                    < QuestionWindow />
+                }
+            </div>
         </div>
     );
 }

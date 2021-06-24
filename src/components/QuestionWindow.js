@@ -31,7 +31,7 @@ function QuestionWindow(props) {
                     </button>
                     <div>
                         <Timer expiryTimestamp={time} />
-                        <h1>{score}</h1>
+                        <br />
                     </div>
                     { /* {
                         clickedAnswer === category.correctAnswers[question] ?
