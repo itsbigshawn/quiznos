@@ -49,7 +49,7 @@ function QuestionWindow(props) {
                         <h1 style={{ color: category.color.text }}>{category.questions[question]}</h1>
                         <Answer answers={category.answers[question]} />
                     </div>
-                    <br/>
+                    <br />
                     <div>
                         <h1 className={
                             score > 0 ? 'positive'
@@ -59,7 +59,6 @@ function QuestionWindow(props) {
                         }> Your score: {score} </h1>
                         <br />
                     </div>
-                    
                 </div>
             )}
         </Popup>

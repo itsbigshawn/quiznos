@@ -8,7 +8,7 @@ import 'reactjs-popup/dist/index.css';
 
 function QuestionCard(props) {
     const classes = useStyles();
-    const { toggleStartQuestion, updateCategory, updateQuestion } = useContext(TriviaContext);
+    const { toggleStartQuestion, updateCategory, updateQuestion, updateClickedAnswer, updateCorrectAnswer } = useContext(TriviaContext);
     const index = props.question;
     const category = props.category;
 
@@ -16,6 +16,8 @@ function QuestionCard(props) {
         toggleStartQuestion();
         updateCategory(category);
         updateQuestion(questionIndex);
+        updateClickedAnswer(0);
+        updateCorrectAnswer(0);
     }
 
     return (

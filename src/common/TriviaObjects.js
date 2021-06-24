@@ -44,7 +44,7 @@ export const SportsCategory = {
     color: {
         card: '#FF6663',
         text: '#C70039'
-    } 
+    }
 }
 
 export const ScienceCategory = {
@@ -91,7 +91,7 @@ export const ScienceCategory = {
     color: {
         card: '#C7F9FA',
         text: '#AAD9DC'
-    } 
+    }
 }
 
 export const MusicCategory = {
@@ -138,7 +138,7 @@ export const MusicCategory = {
     color: {
         card: '#FFFAD4',
         text: '#F6E171'
-    } 
+    }
 }
 
 export const NatureCategory = {
@@ -185,7 +185,7 @@ export const NatureCategory = {
     color: {
         card: '#9EE992',
         text: '#9EE992'
-    } 
+    }
 }
 
 export const TriviaContext = createContext({
