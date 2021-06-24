@@ -1,4 +1,4 @@
-import React, { Component, createContext } from 'react';
+import React, { createContext } from 'react';
 
 export const SportsCategory = {
     questions: {
@@ -41,9 +41,10 @@ export const SportsCategory = {
         3: 30,
         4: 40
     },
-    clickedAnswer: 0,
-    displayQuestion: false,
-    color: '#FF6663',
+    color: {
+        card: '#FF6663',
+        text: '#C70039'
+    } 
 }
 
 export const ScienceCategory = {
@@ -87,9 +88,10 @@ export const ScienceCategory = {
         3: 30,
         4: 40
     },
-    clickedAnswer: 0,
-    displayQuestion: false,
-    color: '#C7F9FA',
+    color: {
+        card: '#C7F9FA',
+        text: '#AAD9DC'
+    } 
 }
 
 export const MusicCategory = {
@@ -133,9 +135,10 @@ export const MusicCategory = {
         3: 30,
         4: 40
     },
-    clickedAnswer: 0,
-    displayQuestion: false,
-    color: '#FFFAD4',
+    color: {
+        card: '#FFFAD4',
+        text: '#F6E171'
+    } 
 }
 
 export const NatureCategory = {
@@ -179,9 +182,10 @@ export const NatureCategory = {
         3: 30,
         4: 40
     },
-    clickedAnswer: 0,
-    displayQuestion: false,
-    color: '#9EE992'
+    color: {
+        card: '#9EE992',
+        text: '#9EE992'
+    } 
 }
 
 export const TriviaContext = createContext({
@@ -190,14 +194,13 @@ export const TriviaContext = createContext({
     startQuestion: false,
     clickedAnswer: 0,
     correctAnswer: 0,
-    timer: 60,
     score: 0,
     updateCategory: (categoryItem) => { },
     updateQuestion: (index) => { },
     toggleStartQuestion: () => { },
     updateClickedAnswer: (clickedAnswer) => { },
     updateCorrectAnswer: (correctAnswer) => { },
-    updateScore: (points) => {},
+    updateScore: (points) => { },
 });
 
 

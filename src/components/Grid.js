@@ -1,15 +1,11 @@
 import React, { useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import { SportsCategory, ScienceCategory, MusicCategory, NatureCategory, TriviaContext } from '../common/TriviaContext';
+import { SportsCategory, ScienceCategory, MusicCategory, NatureCategory, TriviaContext } from '../common/TriviaObjects';
 import QuestionCard from './QuestionCard';
-import Popup from 'reactjs-popup';
-import './Grid.css'
 import QuestionWindow from './QuestionWindow';
+import Grid from '@material-ui/core/Grid';
+import './Grid.css'
 
-function NestedGrid() {
-    const classes = useStyles();
+function MainGrid() {
     const { score, startQuestion } = useContext(TriviaContext);
 
     const formRow = (category) => {
@@ -31,16 +27,16 @@ function NestedGrid() {
             </div>
             <div className='sideBar'>
                 <div className='label'>
-                    <h1 style={{ color: "#C70039" }}>Sports</h1>
+                    <h1 style={{ color: SportsCategory.color.text }}>Sports</h1>
                 </div>
                 <div className='label'>
-                    <h1 style={{ color: "#AAD9DC" }}>Science</h1>
+                    <h1 style={{ color: ScienceCategory.color.text }}>Science</h1>
                 </div>
                 <div className='label'>
-                    <h1 style={{ color: "#FFEB80" }}>Music</h1>
+                    <h1 style={{ color: MusicCategory.color.text }}>Music</h1>
                 </div>
                 <div className='label'>
-                    <h1 style={{ color: "#9EE992" }}>Nature</h1>
+                    <h1 style={{ color: NatureCategory.color.text }}>Nature</h1>
                 </div>
             </div>
             <div className='cardContainer'>
@@ -69,11 +65,4 @@ function NestedGrid() {
     );
 }
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        marginTop: 15,
-    },
-}));
-
-export default NestedGrid
+export default MainGrid

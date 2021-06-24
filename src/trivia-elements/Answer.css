@@ -5,9 +5,9 @@
 }
 .Answers li{
     padding: 10px;
-    border-left: 4px solid black;
-    background-color: #bbb;
+    background-color: rgb(204, 204, 204);
     margin: 5px;
+    border-left: 10px solid;
 }
 .Answers li:hover{
     cursor: pointer;
@@ -17,12 +17,12 @@
 .Answers .correct,
 .Answers .correct:hover {
     background-color: #1db900;
-    border-left: 4px solid #0f6300;
+    border-left: 10px solid #0f6300;
     color: #fff;
 }
 .Answers .incorrect,
 .Answers .incorrect:hover {
     background-color: #ec0000;
-    border-left: 4px solid #FF3B3B;
+    border-left: 10px solid #FF3B3B;
     color: #fff;
 }

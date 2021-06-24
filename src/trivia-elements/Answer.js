@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { SportsCategory, ScienceCategory, MusicCategory, NatureCategory, TriviaContext } from '../common/TriviaContext';
+import { TriviaContext } from '../common/TriviaObjects';
 import './Answer.css';
 
 function Answer(props) {
@@ -14,14 +14,12 @@ function Answer(props) {
         if (clicked === category.correctAnswers[question]) {
             updateCorrectAnswer(category.correctAnswers[question]);
             updateClickedAnswer(clicked);
-            updateScore(category.scores[question])
-            console.log("Correct!")
+            updateScore(category.scores[question]);
         }
         else {
             updateCorrectAnswer(0);
             updateClickedAnswer(clicked);
             updateScore(-category.scores[question])
-            console.log("Incorrect!")
         }
     }
 
@@ -34,6 +32,7 @@ function Answer(props) {
                         clickedAnswer === qAnswer ?
                             'incorrect' : ''
                 }
+                style={{ borderColor: category.color.text }}
                 onClick={() => checkAnswer(qAnswer)}
                 key={qAnswer} >
                 {props.answers[qAnswer]}
@@ -49,4 +48,4 @@ function Answer(props) {
 }
 
 
-export default Answer;    
+export default Answer;

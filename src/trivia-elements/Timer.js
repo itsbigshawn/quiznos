@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TriviaContext } from '../common/TriviaContext';
+import { TriviaContext } from '../common/TriviaObjects';
 import { useTimer } from 'react-timer-hook';
 
 function Timer({ expiryTimestamp }) {
@@ -8,7 +8,6 @@ function Timer({ expiryTimestamp }) {
   const closeWindow = () => {
     toggleStartQuestion();
     updateScore(-category.scores[question]);
-    // restart(expiryTimestamp);
   }
 
   const {
@@ -25,7 +24,7 @@ function Timer({ expiryTimestamp }) {
   return (
     <div style={{ textAlign: 'center' }}>
       <h2> You have </h2>
-      <div style={{ fontSize: '50px' }}>
+      <div style={{ fontSize: '40px', color: 'red' }}>
         <span>{minutes}</span>:<span>{seconds}</span>
       </div>
       <h2> seconds remaining </h2>

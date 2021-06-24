@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import NestedGrid from './components/Grid';
-import { TriviaContext } from './common/TriviaContext';
+import MainGrid from './components/Grid';
+import { TriviaContext } from './common/TriviaObjects';
 
 function App() {
   const [category, setCategory] = useState(null);
@@ -9,7 +9,6 @@ function App() {
   const [startQuestion, setStartQuestion] = useState(false);
   const [clickedAnswer, setClickedAnswer] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
-  const [timer, setTimer] = useState(60);
   const [score, setScore] = useState(0);
 
   const updateCategory = (categoryItem) => setCategory(categoryItem);
@@ -28,7 +27,6 @@ function App() {
           startQuestion,
           clickedAnswer,
           correctAnswer,
-          timer,
           score,
           updateCategory,
           updateQuestion,
@@ -38,7 +36,7 @@ function App() {
           updateScore,
         }}
       >
-        <NestedGrid />
+        <MainGrid />
       </TriviaContext.Provider>
     </div>
 
